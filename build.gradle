@@ -1,4 +1,4 @@
-group 'localhost.spring.springboot'
+group 'es.microservice.spring.netflix'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
@@ -19,7 +19,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+    	classpath 'io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE'
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE'
     }
 }
   
@@ -32,7 +33,7 @@ dependencyManagement {
 sourceCompatibility = 1.8
  
 springBoot {
-    mainClass = "localhost.spring.springboot.eureka.Application"
+    mainClass = "es.microservice.spring.netflix.eureka.EurekaStarter"
 }
  
 repositories {
@@ -40,7 +41,13 @@ repositories {
 }
  
 dependencies {
-    compile 'org.springframework.cloud:spring-cloud-starter-eureka-server'
+    compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
+    compile('de.codecentric:spring-boot-starter-admin-client:1.1.2')
+    testCompile(
+		'junit:junit:4.12',
+		'org.codehaus.groovy:groovy-all:2.4.7',
+		'org.spockframework:spock-core:1.0-groovy-2.4'
+	)
 }
 
 jacoco {
@@ -49,7 +56,7 @@ jacoco {
 
 jacocoTestReport {
 	reports {
-		xml.enabled true
+		xml.enabled false
 		csv.enabled false
 		html.enabled true
 	}
