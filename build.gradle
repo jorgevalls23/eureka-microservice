@@ -45,7 +45,7 @@ dependencies {
     compile('de.codecentric:spring-boot-starter-admin-client:1.1.2')
     testCompile(
 		'junit:junit:4.12',
-		'org.codehaus.groovy:groovy-all:2.4.7',
+		'org.codehaus.groovy:groovy-all:2.4.12',
 		'org.spockframework:spock-core:1.0-groovy-2.4'
 	)
 }
