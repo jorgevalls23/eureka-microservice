@@ -1,7 +1,7 @@
 /*
  * Test Eureka starter class
  */
-package es.microservice.spring.netflix.eureka;
+package es.microservices.spring.netflix.eureka;
 
 import groovy.*
 import spock.lang.*
